@@ -21,10 +21,37 @@
         background-color: #f0f0f0;
       }
     </style>
+    <script>
+      function GetURLParameter(sParam) {
+          var sPageURL = window.location.search.substring(1);
+          var sURLVariables = sPageURL.split('&');
+          for (var i = 0; i < sURLVariables.length; i++)
+          {
+              var sParameterName = sURLVariables[i].split('=');
+              if (sParameterName[0] == sParam)
+              {
+                  return sParameterName[1];
+              }
+          }
+      }
+      function getUrl() {
+        const roomId = GetURLParameter("room") || "meet-bb8df887-ec2e-482d-8373-4657b94717b1"
+        const displayName = GetURLParameter('displayName') || ""
+        return `https://habity.whereby.com/${roomId}?displayName=${displayName}&minimal=on&video=on&audio=on&people=off`
+      }
+    </script>
   </head>
   <body style="margin: 0;">
-    <!-- <h1>Hello World</h1>
-    <p>I'm hosted with GitHub Pages.</p> -->
-    <iframe src="https://habity.whereby.com/meet-bb8df887-ec2e-482d-8373-4657b94717b1" allow="camera; microphone; fullscreen; speaker; display-capture" style="height: 900px; width: 100%; border: none;" frameBorder="0"></iframe>
+    <script>
+      window.onload = function() {
+          var iframe = document.createElement('iframe');
+          iframe.style.display = "none";
+          iframe.src = getUrl();
+          iframe.allow = "camera; microphone; fullscreen; speaker; display-capture; autoplay";
+          iframe.style = "height: 100vh; width: 100%; border: none;";
+          iframe.frameBorder = 0;
+          document.body.appendChild(iframe);
+      };
+    </script>
   </body>
 </html>
