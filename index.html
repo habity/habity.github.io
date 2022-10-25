@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Language" content="en-us" />
@@ -16,16 +16,7 @@
     <meta itemprop="image" content="img/preview.jpeg"/>
     <meta name='viewport' content='width=930, initial-scale=1, maximum-scale=1, user-scalable=1' />
     <meta name="author" content="Habity - https://habity.co/" />
-    <style>
-       :root {
-        height: 100%;
-      }
-
-      body {
-        background-color: #f0f0f0;
-        height: inherit;
-      }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       function GetURLParameter(sParam) {
           var sPageURL = window.location.search.substring(1);
@@ -43,18 +34,18 @@
         const roomId = GetURLParameter("room") || "meet-bb8df887-ec2e-482d-8373-4657b94717b1"
         const displayName = GetURLParameter('displayName') || ""
         const roomKey = GetURLParameter('roomKey') || ""
-        return `https://habity.whereby.com/${roomId}?roomKey=${roomKey}&displayName=${displayName}&minimal=on&video=on&audio=on&people=off`
+        return `https://habity.whereby.com/${roomId}?roomKey=${roomKey}&displayName=${displayName}&minimal=on&video=on&audio=on&chat=on&people=off`
       }
     </script>
   </head>
-  <body style="margin: 0;">
+  <body>
     <script>
       window.onload = function() {
           var iframe = document.createElement('iframe');
           iframe.style.display = "none";
           iframe.src = getUrl();
           iframe.allow = "camera; microphone; fullscreen; speaker; display-capture; autoplay";
-          iframe.style = "height: inherit; width: 100%; border: none;";
+          iframe.class = "w-full h-full";
           iframe.frameBorder = 0;
           document.body.appendChild(iframe);
       };
