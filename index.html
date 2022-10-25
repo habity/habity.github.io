@@ -17,8 +17,13 @@
     <meta name='viewport' content='width=930, initial-scale=1, maximum-scale=1, user-scalable=1' />
     <meta name="author" content="Habity - https://habity.co/" />
     <style>
+       :root {
+        height: 100%;
+      }
+
       body {
         background-color: #f0f0f0;
+        height: inherit;
       }
     </style>
     <script>
@@ -37,7 +42,8 @@
       function getUrl() {
         const roomId = GetURLParameter("room") || "meet-bb8df887-ec2e-482d-8373-4657b94717b1"
         const displayName = GetURLParameter('displayName') || ""
-        return `https://habity.whereby.com/${roomId}?displayName=${displayName}&minimal=on&video=on&audio=on&people=off`
+        const roomKey = GetURLParameter('roomKey') || ""
+        return `https://habity.whereby.com/${roomId}?roomKey=${roomKey}&displayName=${displayName}&minimal=on&video=on&audio=on&people=off`
       }
     </script>
   </head>
@@ -48,7 +54,7 @@
           iframe.style.display = "none";
           iframe.src = getUrl();
           iframe.allow = "camera; microphone; fullscreen; speaker; display-capture; autoplay";
-          iframe.style = "height: 100vh; width: 100%; border: none;";
+          iframe.style = "height: inherit; width: 100%; border: none;";
           iframe.frameBorder = 0;
           document.body.appendChild(iframe);
       };
