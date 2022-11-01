@@ -33,8 +33,9 @@
       function getUrl() {
         const roomId = GetURLParameter("room") || "meet-bb8df887-ec2e-482d-8373-4657b94717b1"
         const displayName = GetURLParameter('displayName') || ""
+        const avatarUrl = GetURLParameter('avatarUrl') || ""
         const roomKey = GetURLParameter('roomKey') || ""
-        return `https://habity.whereby.com/${roomId}?roomKey=${roomKey}&displayName=${displayName}&minimal=on&video=on&audio=on&chat=on&people=off`
+        return `https://habity.whereby.com/${roomId}?floatSelf&roomKey=${roomKey}&displayName=${displayName}&avatarUrl=${avatarUrl}&moreButton=off&screenshare=on&leaveButton=on&video=on&audio=on&chat=on&people=off`
       }
     </script>
   </head>
