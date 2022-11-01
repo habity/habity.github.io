@@ -41,13 +41,14 @@
   <body>
     <script>
       window.onload = function() {
-          var iframe = document.createElement('iframe');
-          iframe.style.display = "none";
-          iframe.src = getUrl();
-          iframe.allow = "camera; microphone; fullscreen; speaker; display-capture; autoplay";
-          iframe.class = "w-full h-full";
-          iframe.frameBorder = 0;
-          document.body.appendChild(iframe);
+        window.location.replace(getUrl());
+          // var iframe = document.createElement('iframe');
+          // iframe.style.display = "none";
+          // iframe.src = getUrl();
+          // iframe.allow = "camera; microphone; fullscreen; speaker; display-capture; autoplay";
+          // iframe.class = "w-full h-full";
+          // iframe.frameBorder = 0;
+          // document.body.appendChild(iframe);
       };
     </script>
   </body>
